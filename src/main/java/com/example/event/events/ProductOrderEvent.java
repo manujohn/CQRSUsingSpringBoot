@@ -1,17 +1,13 @@
-package com.example.event.command;
+package com.example.event.events;
 
-import org.axonframework.modelling.command.TargetAggregateIdentifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProductCommand {
-	
-	@TargetAggregateIdentifier
+public class ProductOrderEvent {
 	private String productOrderId;
 	private long productId;
 	private String productName;
 
-	
 	public String getProductOrderId() {
 		return productOrderId;
 	}
@@ -38,8 +34,9 @@ public class ProductCommand {
 
 	@Override
 	public String toString() {
-		return "ProductCommand [productOrderId=" + productOrderId + ", productId=" + productId + ", productName="
+		return "ProductOrderEvent [productOrderId=" + productOrderId + ", productId=" + productId + ", productName="
 				+ productName + "]";
 	}
+	
 	
 }

@@ -16,8 +16,11 @@ import com.example.event.model.ProductModel;
 @RequestMapping("/product")
 public class ProductCommandController {
 
-	@Autowired
 	private CommandGateway commandGateway;
+	
+	public ProductCommandController(CommandGateway commandGateway) {
+		this.commandGateway = commandGateway;
+	}
 
 	@Autowired
 	private ProductCommand productCommand;
@@ -28,7 +31,7 @@ public class ProductCommandController {
 		productCommand.setProductOrderId(UUID.randomUUID().toString());
 		productCommand.setProductId(productModel.getProductId());
 		productCommand.setProductName(productModel.getProductName());
-
+		
 		return commandGateway.sendAndWait(productCommand);
 	}
 }
